@@ -1,0 +1,31 @@
+﻿<Window x:Class="LengthCalculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LengthCalculator"
+        mc:Ignorable="d"
+        Title="長度單位轉換程式" Height="296.825" Width="563.492">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="91*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="公分" HorizontalAlignment="Left" Margin="80,59,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.774,0.497" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtCM" HorizontalAlignment="Left" Height="23" Margin="80,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyUp="txtCM_KeyUp" Grid.ColumnSpan="2"/>
+        <Label Content="公尺" HorizontalAlignment="Left" Margin="123.823,59,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.774,0.497" Grid.Column="1"/>
+        <TextBox x:Name="txtM" HorizontalAlignment="Left" Height="23" Margin="123.823,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" KeyUp="txtM_KeyUp"/>
+        <Button x:Name="btnAllClear" Content="清除" HorizontalAlignment="Left" Margin="80,31,0,0" VerticalAlignment="Top" Width="85" Height="23" Grid.ColumnSpan="2" Click="btnAllClear_Click"/>
+        <Label Content="公里" HorizontalAlignment="Left" Margin="266.823,59,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.774,0.497" Grid.Column="1"/>
+        <TextBox x:Name="txtKM" HorizontalAlignment="Left" Height="23" Margin="266.823,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" KeyUp="txtKM_KeyUp"/>
+        <Label Content="英吋" HorizontalAlignment="Left" Margin="80,128,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.774,0.497" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtIn" HorizontalAlignment="Left" Height="23" Margin="80,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" KeyUp="txtIn_KeyUp"/>
+        <TextBox x:Name="txtInfo" HorizontalAlignment="Left" Height="23" Margin="80,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="407" KeyUp="txtCM_KeyUp" Grid.ColumnSpan="2"/>
+        <Label Content="英呎" HorizontalAlignment="Left" Margin="123.823,128,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.774,0.497" Grid.Column="1"/>
+        <TextBox x:Name="txtFt" HorizontalAlignment="Left" Height="23" Margin="123.823,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" KeyUp="txtFt_KeyUp"/>
+        <Label Content="碼" HorizontalAlignment="Left" Margin="266.823,128,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.774,0.497" Grid.Column="1"/>
+        <TextBox x:Name="txtYard" HorizontalAlignment="Left" Height="23" Margin="266.823,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" KeyUp="txtYard_KeyUp"/>
+        <Label Content="說明文字" HorizontalAlignment="Left" Margin="80,193,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.774,0.497" Grid.ColumnSpan="2"/>
+
+    </Grid>
+</Window>
