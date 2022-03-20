@@ -20,14 +20,16 @@ namespace LengthCalculator
     /// </summary>
     public partial class MainWindow : Window
     {
-        string strInput;
-        double douInput, number;
+        // 共用變數
+        string strInput; // 字串型態的strInput變數
+        double douInput, number; // double浮點數型態的douInput變數與number變數
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        // 設計一個單位轉換計算的函式，沒有回傳值，設計兩個參數，1.類別參數、2.數值參數
         private void caculateAnswer(int _kind, double _value)
         {
             if (_kind != 0)
@@ -46,17 +48,19 @@ namespace LengthCalculator
 
         private void txtCM_KeyUp(object sender, KeyEventArgs e)
         {
-            strInput = txtCM.Text;
+            strInput = txtCM.Text; // 將txtCM文字框的值放入strInput變數
 
-            if (double.TryParse(strInput, out number) != true)
-            {
-                txtInfo.Text = "請輸入數字";
-                txtCM.Text = "";
-            }
-            else
+            // 判斷式，如果能夠以double.TryParse成功轉型，那才做數值的計算
+            if (double.TryParse(strInput, out number) == true)
             {
                 douInput = Convert.ToDouble(txtCM.Text);
                 caculateAnswer(0, douInput);
+            }
+            else
+            {
+                // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtCM文字框清除
+                txtInfo.Text = "請輸入數字";
+                txtCM.Text = "";
             }
         }
 
@@ -64,31 +68,31 @@ namespace LengthCalculator
         {
             strInput = txtM.Text;
 
-            if (double.TryParse(strInput, out number) != true)
+            if (double.TryParse(strInput, out number) == true)
+            {
+                douInput = Convert.ToDouble(txtM.Text);
+                caculateAnswer(1, douInput * 100); // 事先將公尺轉換成公分
+            }
+            else
             {
                 txtInfo.Text = "請輸入數字";
                 txtM.Text = "";
             }
-            else
-            {
-                douInput = Convert.ToDouble(txtM.Text);
-                caculateAnswer(1, douInput * 100);
-            }
-        }       
+        }
 
         private void txtKM_KeyUp(object sender, KeyEventArgs e)
         {
             strInput = txtKM.Text;
 
-            if (double.TryParse(strInput, out number) != true)
-            {
-                txtInfo.Text = "請輸入數字";
-                txtKM.Text = "";
-            }
-            else
+            if (double.TryParse(strInput, out number) == true)
             {
                 douInput = Convert.ToDouble(txtKM.Text);
                 caculateAnswer(2, douInput * 100000);
+            }
+            else
+            {
+                txtInfo.Text = "請輸入數字";
+                txtKM.Text = "";
             }
         }
 
@@ -96,15 +100,15 @@ namespace LengthCalculator
         {
             strInput = txtIn.Text;
 
-            if (double.TryParse(strInput, out number) != true)
-            {
-                txtInfo.Text = "請輸入數字";
-                txtIn.Text = "";
-            }
-            else
+            if (double.TryParse(strInput, out number) == true)
             {
                 douInput = Convert.ToDouble(txtIn.Text);
                 caculateAnswer(3, douInput * 2.54);
+            }
+            else
+            {
+                txtInfo.Text = "請輸入數字";
+                txtIn.Text = "";
             }
         }
 
@@ -112,17 +116,17 @@ namespace LengthCalculator
         {
             strInput = txtFt.Text;
 
-            if (double.TryParse(strInput, out number) != true)
-            {
-                txtInfo.Text = "請輸入數字";
-                txtFt.Text = "";
-            }
-            else
+            if (double.TryParse(strInput, out number) == true)
             {
                 douInput = Convert.ToDouble(txtFt.Text);
                 caculateAnswer(4, douInput * 30.48);
             }
-        }   
+            else
+            {
+                txtInfo.Text = "請輸入數字";
+                txtFt.Text = "";
+            }
+        }
 
         private void txtYard_KeyUp(object sender, KeyEventArgs e)
         {
@@ -130,13 +134,13 @@ namespace LengthCalculator
 
             if (double.TryParse(strInput, out number) != true)
             {
-                txtInfo.Text = "請輸入數字";
-                txtYard.Text = "";
+                douInput = Convert.ToDouble(txtYard.Text);
+                caculateAnswer(5, douInput * 91.44);
             }
             else
             {
-                douInput = Convert.ToDouble(txtYard.Text);
-                caculateAnswer(5, douInput * 91.44);
+                txtInfo.Text = "請輸入數字";
+                txtYard.Text = "";
             }
         }
 
