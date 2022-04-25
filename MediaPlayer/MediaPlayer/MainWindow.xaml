@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MediaPlayer"
         mc:Ignorable="d"
-        Title="影音播放程式" Height="500" Width="750">
+        Title="影音播放程式" Height="588.333" Width="750">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black" Offset="0"/>
@@ -14,11 +14,17 @@
         </LinearGradientBrush>
     </Window.Background>
     <Grid>
-        <MediaElement x:Name="MedShow" HorizontalAlignment="Left" Height="330" Margin="43,68,0,0" VerticalAlignment="Top" Width="659"/>
-        <Button x:Name="btnPlay" Content="播放" HorizontalAlignment="Left" Margin="43,420,0,0" VerticalAlignment="Top" Width="103" Height="30" Background="#FF6AC928"/>
-        <Button x:Name="btnPause" Content="暫停 " HorizontalAlignment="Left" Margin="167,420,0,0" VerticalAlignment="Top" Width="103" Height="30" Background="#FF28A4C9"/>
-        <Button x:Name="btnStop" Content="停止" HorizontalAlignment="Left" Margin="294,420,0,0" VerticalAlignment="Top" Width="103" Height="30" Background="#FFC92828" BorderBrush="#FF707070" Foreground="#FF56E6C5"/>
-        <Button x:Name="btnExit" Content="離開" HorizontalAlignment="Left" Margin="417,420,0,0" VerticalAlignment="Top" Width="103" Height="30" BorderBrush="#FF707070" Foreground="Black">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <MediaElement x:Name="MedShow" HorizontalAlignment="Left" Height="330" Margin="43,68,0,0" VerticalAlignment="Top" Width="659" MediaOpened="MedShow_MediaOpened"/>
+        <Button x:Name="btnPlay" Content="播放" HorizontalAlignment="Left" Margin="43,439,0,0" VerticalAlignment="Top" Width="103" Height="30" Background="#FF6AC928" Click="btnPlay_Click"/>
+        <Button x:Name="btnPause" Content="暫停 " HorizontalAlignment="Left" Margin="167,439,0,0" VerticalAlignment="Top" Width="103" Height="30" Background="#FF28A4C9" Click="btnPause_Click"/>
+        <Button x:Name="btnStop" Content="停止" HorizontalAlignment="Left" Margin="294,439,0,0" VerticalAlignment="Top" Width="103" Height="30" Background="#FFC92828" BorderBrush="#FF707070" Foreground="#FF56E6C5" Click="btnStop_Click"/>
+        <Button x:Name="btnExit" Content="離開" HorizontalAlignment="Left" Margin="417,439,0,0" VerticalAlignment="Top" Width="103" Height="30" BorderBrush="#FF707070" Foreground="Black" Click="btnExit_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -28,6 +34,8 @@
         </Button>
         <TextBox x:Name="txtFilePath" HorizontalAlignment="Left" Height="23" Margin="43,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="506"/>
         <Button x:Name="btnOpenFile" Content="開啟檔案" HorizontalAlignment="Left" Margin="554,40,0,0" VerticalAlignment="Top" Width="148" Height="23" Background="#FFDFF7CF" Click="btnOpenFile_Click"/>
-
+        <Slider x:Name="sliVolume" HorizontalAlignment="Left" Margin="538,439,0,0" VerticalAlignment="Top" Height="30" Width="164" ValueChanged="sliVolume_ValueChanged" Value="0.5" Maximum="1" TickFrequency="0.01" LargeChange="0.05" Background="#FF33B5FF"/>
+        <TextBox x:Name="txtTime" HorizontalAlignment="Left" Height="23" Margin="53,485,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Slider x:Name="sliProgress" HorizontalAlignment="Left" Margin="43,403,0,0" VerticalAlignment="Top" Width="659" PreviewMouseLeftButtonUp="sliProgress_PreviewMouseLeftButtonUp"/>
     </Grid>
 </Window>
