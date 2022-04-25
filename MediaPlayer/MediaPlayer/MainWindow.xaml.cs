@@ -30,7 +30,8 @@ namespace MediaPlayer
             // 檔案開啟物件
             var fd = new Microsoft.Win32.OpenFileDialog();
             // 設定檔案過濾
-            fd.Filter = "MP3(*.mp3)|*.mp3|MP4(*.mp4)|*.mp4|3GP(*.3gp)|*.3gp|WMA(*.wma)|*.wma|MOV(*.mov)|*.mov|AVI(*.avi)|*.avi|WMV(*.wmv)|*.wmv|MPEG(*.mpeg)|*.mpeg|所有檔案(*.*)|*.*";
+            fd.Filter = "音訊檔案(*.mp3,*.3gp,*.wma)|*.mp3; *.3gp; *.wma|影片檔案(*.mp4, *.avi, *.mpeg, *.wmv)|*.mp4; *.avi; *.mpeg; *.wmv|所有檔案(*.*)|*.*";
+            //fd.Filter = "MP3(*.mp3)|*.mp3|MP4(*.mp4)|*.mp4|3GP(*.3gp)|*.3gp|WMA(*.wma)|*.wma|MOV(*.mov)|*.mov|AVI(*.avi)|*.avi|WMV(*.wmv)|*.wmv|MPEG(*.mpeg)|*.mpeg|所有檔案(*.*)|*.*";
             // 設定預設開啟檔案位置，設定為桌面
             fd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             // 開啟對話框
@@ -46,10 +47,9 @@ namespace MediaPlayer
                 // 將URI放進影音元件中
                 MedShow.Source = u;
                 // 設定這個影音的聲音大小（可有可無）
-                MedShow.Volume = 100.5;
+                MedShow.Volume = 0.5;
                 // 將影音進行播放
-                MediaState opt = MediaState.Play;
-                MedShow.LoadedBehavior = opt;
+                MedShow.LoadedBehavior = MediaState.Play;
             }
         }
     }
