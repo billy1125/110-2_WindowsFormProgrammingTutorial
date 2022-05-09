@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Threading;
 
 namespace MediaPlayer
 {
@@ -81,32 +80,7 @@ namespace MediaPlayer
         {
             MedShow.Volume = sliVolume.Value;
             //txtFilePath.Text = MedShow.Volume.ToString();
-        }
-
-        TimeSpan TimePosition; // 宣告一個時間間格
-        DispatcherTimer timer = null; // 宣告一個「空的」計時器
-
-        private void MedShow_MediaOpened(object sender, RoutedEventArgs e)
-        {
-            // 取得所開啟的影片時間長度
-            TimePosition = MedShow.NaturalDuration.TimeSpan;
-            // 重新設定影片播放滑桿
-            sliProgress.Minimum = 0;
-            sliProgress.Maximum = TimePosition.TotalMilliseconds; //最大值設定為影片的總毫秒數
-
-            // 設定計時器
-            timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += new EventHandler(timer_tick); //每一個時間刻度設定一個小程序timer_tick
-            timer.Start();
-        }
-
-        private void timer_tick(object sender, EventArgs e)
-        {
-            // 小程序，更新目前影片播放進度
-            sliProgress.Value = MedShow.Position.TotalMilliseconds;
-            txtTime.Text = MedShow.Position.ToString("h'h 'm'm 's's'");
-        }
+        }      
 
         private void sliProgress_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
