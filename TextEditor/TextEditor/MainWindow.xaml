@@ -9,10 +9,10 @@
     <Grid>
         <Button x:Name="btnOpen" Content="開啟檔案" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Height="34" Click="btnOpen_Click"/>
         <Button x:Name="btnSave" Content="儲存檔案" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" Height="34" Click="btnSave_Click"/>
-        <Button x:Name="btnBold" Content="B" HorizontalAlignment="Left" Margin="381,17,0,0" VerticalAlignment="Top" Width="25" Height="22" FontWeight="Bold" FontFamily="Times New Roman"/>
-        <Button x:Name="btnItalic" Content="I" HorizontalAlignment="Left" Margin="411,17,0,0" VerticalAlignment="Top" Width="25" Height="22" FontWeight="Bold" FontFamily="Times New Roman" FontStyle="Italic"/>
-        <Button x:Name="btnUnderline" Content="U" HorizontalAlignment="Left" Margin="441,17,0,0" VerticalAlignment="Top" Width="25" Height="22" FontWeight="Bold" FontFamily="Times New Roman"/>
-        <RichTextBox x:Name="rtbText" HorizontalAlignment="Left" Height="360" Margin="10,49,0,0" VerticalAlignment="Top" Width="772">
+        <Button x:Name="btnBold" Content="B" HorizontalAlignment="Left" Margin="381,17,0,0" VerticalAlignment="Top" Width="25" Height="22" FontWeight="Bold" FontFamily="Times New Roman" Click="btnBold_Click"/>
+        <Button x:Name="btnItalic" Content="I" HorizontalAlignment="Left" Margin="411,17,0,0" VerticalAlignment="Top" Width="25" Height="22" FontWeight="Bold" FontFamily="Times New Roman" FontStyle="Italic" Click="btnItalic_Click"/>
+        <Button x:Name="btnUnderline" Content="U" HorizontalAlignment="Left" Margin="441,17,0,0" VerticalAlignment="Top" Width="25" Height="22" FontWeight="Bold" FontFamily="Times New Roman" Click="btnUnderline_Click"/>
+        <RichTextBox x:Name="rtbText" HorizontalAlignment="Left" Height="360" Margin="10,49,0,0" VerticalAlignment="Top" Width="772" SelectionChanged="rtbText_SelectionChanged" LostFocus="rtbText_LostFocus">
             <FlowDocument>
                 <Paragraph>
                     <Run Text="RichTextBox"/>
