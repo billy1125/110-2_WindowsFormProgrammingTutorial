@@ -13,14 +13,12 @@
 
 ## 內容
 
-包括基本登入、會員系統、論壇系統與線上購物系統等。
+包括基本HellWorld、單位轉換、計算機程式、媒體播放器、記事本、文字編輯器、數位時鐘等。
 
 ## 執行語言與所需相關套件
 
-目前本程式主要於 PHP 7 開發，除此之外本程式基於 [XAMPP for Windows 7.4.29](https://www.apachefriends.org/zh_tw/download.html)。
-
-> 以上套件為主要開發環境，若您採用非相同版本之 PHP 與 XAMPP 套件，執行上有任何錯誤歡迎交流。
+目前本程式主要於 Visual Studio 2019 開發。
 
 ## 使用方法
 
-請將所有程式解壓縮到 XAMPP 的網頁伺服器資料夾，通常為「C:\xampp\htdocs」。並且將資料庫匯出檔案（置放於MySQLDatabaseData檔案夾）匯入MySQL資料庫中，資料庫名稱與匯出檔檔名相同。
+下載後與 Visual Studio 2019 開啟專案的方式相同。
