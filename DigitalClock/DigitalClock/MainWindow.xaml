@@ -5,17 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DigitalClock"
         mc:Ignorable="d"
-        Title="簡易時鐘" Height="450" Width="800" Icon="clock.png" ResizeMode="NoResize">
+        Title="簡易時鐘" Height="466" Width="800" Icon="clock.png" ResizeMode="NoResize">
     <Grid>
-        <TextBox x:Name="txtTime" HorizontalAlignment="Left" Height="130" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="772" FontSize="100" TextAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
-        <TextBox x:Name="txtDate" HorizontalAlignment="Left" Height="130" Margin="10,145,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="513" VerticalContentAlignment="Center" TextAlignment="Center" FontSize="60" FontWeight="Bold"/>
-        <TextBox x:Name="txtWeekDay" HorizontalAlignment="Left" Height="130" Margin="528,145,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="254" VerticalContentAlignment="Center" TextAlignment="Center" FontSize="60" FontWeight="Bold"/>
-        <Button x:Name="btnSetAlert" Content="啟動鬧鐘" HorizontalAlignment="Left" Margin="10,280,0,0" VerticalAlignment="Top" Width="141" Height="73" FontSize="24" Click="btnSetAlert_Click"/>
-        <Button x:Name="btnCancelAlert" Content="關閉鬧鐘" HorizontalAlignment="Left" Margin="156,280,0,0" VerticalAlignment="Top" Width="141" Height="73" FontSize="24" Click="btnCancelAlert_Click"/>
-        <ComboBox x:Name="cmbHour" HorizontalAlignment="Left" Margin="302,280,0,0" VerticalAlignment="Top" Width="163" Height="73" VerticalContentAlignment="Center" FontSize="36"/>
-        <ComboBox x:Name="cmbMin" HorizontalAlignment="Left" Margin="494,280,0,0" VerticalAlignment="Top" Width="163" Height="73" VerticalContentAlignment="Center" FontSize="36"/>
-        <Label Content=":" HorizontalAlignment="Left" Margin="470,280,0,0" VerticalAlignment="Top" Width="19" Height="73" FontWeight="Bold" FontSize="36" VerticalContentAlignment="Center"/>
-        <MediaElement x:Name="meSound" HorizontalAlignment="Left" Height="100" Margin="671,293,0,0" VerticalAlignment="Top" Width="100" Source="alert.wav" Volume="1" MediaEnded="meSound_MediaEnded"/>
+        <TabControl HorizontalAlignment="Left" Height="401" Margin="10,10,0,0" VerticalAlignment="Top" Width="774">
+            <TabItem Header="時鐘與鬧鐘">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox x:Name="txtTime" HorizontalAlignment="Left" Height="120" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="747" FontSize="100" TextAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
+                    <TextBox x:Name="txtDate" HorizontalAlignment="Left" Height="120" Margin="10,135,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="496" VerticalContentAlignment="Center" TextAlignment="Center" FontSize="60" FontWeight="Bold"/>
+                    <TextBox x:Name="txtWeekDay" HorizontalAlignment="Left" Height="120" Margin="511,135,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="246" VerticalContentAlignment="Center" TextAlignment="Center" FontSize="55" FontWeight="Bold"/>
+                    <Button x:Name="btnSetAlert" Content="啟動鬧鐘" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top" Width="136" Height="67" FontSize="24" Click="btnSetAlert_Click"/>
+                    <Button x:Name="btnCancelAlert" Content="關閉鬧鐘" HorizontalAlignment="Left" Margin="151,260,0,0" VerticalAlignment="Top" Width="137" Height="67" FontSize="24" Click="btnCancelAlert_Click"/>
+                    <ComboBox x:Name="cmbHour" HorizontalAlignment="Left" Margin="293,260,0,0" VerticalAlignment="Top" Width="157" Height="67" VerticalContentAlignment="Center" FontSize="36"/>
+                    <ComboBox x:Name="cmbMin" HorizontalAlignment="Left" Margin="478,260,0,0" VerticalAlignment="Top" Width="158" Height="67" VerticalContentAlignment="Center" FontSize="36"/>
+                    <Label Content=":" HorizontalAlignment="Left" Margin="455,260,0,0" VerticalAlignment="Top" Width="18" Height="67" FontWeight="Bold" FontSize="36" VerticalContentAlignment="Center"/>
+                    <MediaElement x:Name="meSound" HorizontalAlignment="Left" Height="92" Margin="650,272,0,0" VerticalAlignment="Top" Width="96" Source="alert.wav" Volume="1" MediaEnded="meSound_MediaEnded"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="碼表">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox x:Name="txtStopWatch" HorizontalAlignment="Left" Height="123" Margin="10,10,0,0" TextWrapping="Wrap" Text="00:00:00:000" VerticalAlignment="Top" Width="748" FontWeight="Bold" FontSize="72" TextAlignment="Center" VerticalContentAlignment="Center"/>
+                    <TextBox x:Name="txtStopWatchLog" HorizontalAlignment="Left" Height="226" Margin="10,138,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="259" FontSize="16"/>
+                    <Button x:Name="btnStart" Content="啟動" HorizontalAlignment="Left" Margin="274,138,0,0" VerticalAlignment="Top" Width="186" Height="73" FontWeight="Bold" FontSize="22" Click="btnStart_Click"/>
+                    <Button x:Name="btnPause" Content="暫停" HorizontalAlignment="Left" Margin="491,138,0,0" VerticalAlignment="Top" Width="186" Height="73" FontWeight="Bold" FontSize="22" Click="btnPause_Click"/>
+                    <Button x:Name="btnReset" Content="歸零" HorizontalAlignment="Left" Margin="274,216,0,0" VerticalAlignment="Top" Width="186" Height="73" FontSize="22" FontWeight="Bold" Click="btnReset_Click"/>
+                    <Button x:Name="btnLog" Content="記錄" HorizontalAlignment="Left" Margin="491,216,0,0" VerticalAlignment="Top" Width="186" Height="73" FontSize="22" FontWeight="Bold" Click="btnLog_Click"/>
+                    <Button x:Name="btnStop" Content="停止並歸零" HorizontalAlignment="Left" Margin="274,294,0,0" VerticalAlignment="Top" Width="186" Height="70" FontSize="22" FontWeight="Bold" Click="btnStop_Click"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>

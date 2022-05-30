@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading; // 要加入這段才能使用計時器
+using System.Diagnostics;       // 引用「系統診斷」的函式庫
 
 namespace DigitalClock
 {
@@ -27,6 +28,10 @@ namespace DigitalClock
 
         string strSelectTime = "";   // 用來記錄鬧鐘設定時間
         DispatcherTimer timerAlert = new DispatcherTimer(); // 宣告一個「鬧鐘」計時器
+
+        List<string> StopWatchLog = new List<string>();         // 碼表紀錄清單 
+        DispatcherTimer timerStopWatch = new DispatcherTimer(); // 宣告一個「碼表」計時器
+        Stopwatch sw = new Stopwatch();                         // 宣告一個碼表物件
 
         // 程式初始化動作
         public MainWindow() 
@@ -54,6 +59,10 @@ namespace DigitalClock
             timerAlert.Interval = TimeSpan.FromSeconds(1);        // 這個計時器設定每一個刻度為1秒
             timerAlert.Tick += new EventHandler(timerAlert_tick); // 每一個時間刻度設定一個小程序timerAlert_tic
 
+            // 設定「碼表時間更新」計時器  
+            timerStopWatch.Interval = TimeSpan.FromMilliseconds(1);        // 這個計時器設定每一個刻度為「1毫秒」
+            timerStopWatch.Tick += new EventHandler(timerStopWatch_tick);  // 每一個時間刻度設定一個小程序timerStopWatch_tick
+
             meSound.LoadedBehavior = MediaState.Stop; // 關閉鬧鐘聲音
         }
 
@@ -74,6 +83,12 @@ namespace DigitalClock
                 meSound.LoadedBehavior = MediaState.Play; // 開啟鬧鐘聲音
                 timerAlert.Stop(); // 停止鬧鐘計時器
             }
+        }
+
+        // timerStopWatch_tick：每毫秒執行一次，所以更新的速度會比較快
+        private void timerStopWatch_tick(object sender, EventArgs e)
+        {
+            txtStopWatch.Text = sw.Elapsed.ToString("hh':'mm':'ss':'fff");    // 顯示碼表時間
         }
 
         private void btnSetAlert_Click(object sender, RoutedEventArgs e)
@@ -97,6 +112,70 @@ namespace DigitalClock
         {
             meSound.Position = new TimeSpan(0, 0, 1); // 把播放時間一到一開始的播放時間
             meSound.LoadedBehavior = MediaState.Play; // 播放鬧鐘聲音
+        }
+
+        private void btnStart_Click(object sender, RoutedEventArgs e)
+        {
+            sw.Start();             // 啟動碼表
+            timerStopWatch.Start(); // 開始讓碼表文字顯示
+        }
+
+        private void btnStop_Click(object sender, RoutedEventArgs e)
+        {
+            sw.Reset();                           // 停止並歸零碼表
+            timerStopWatch.Stop();                // 停止讓碼表文字顯示     
+            txtStopWatch.Text = "00:00:00:000";   // 讓碼表文字「歸零」
+            txtStopWatchLog.Text = "";            // 清除紀錄表
+            StopWatchLog.Clear();                 // 清除暫存碼表紀錄清單
+        }
+
+        // 歸零按鍵會判斷你是否先按下暫停？來決定是否記錄碼表時間
+        private void btnReset_Click(object sender, RoutedEventArgs e)
+        {
+            // 如果碼表還在跑，就紀錄目前的時間，最後歸零再啟動碼錶
+            if (sw.IsRunning)
+            {
+                txtStopWatchLog.Text = "";
+                // 判斷暫存碼表紀錄清單是不是已經紀錄10次？如果是，就把原本第一筆資料刪除，然後才增加新的一筆紀錄
+                if (StopWatchLog.Count == 10)
+                    StopWatchLog.RemoveAt(0);
+                StopWatchLog.Add(txtStopWatch.Text); // 將碼表時間增加到暫存碼表紀錄清單裡
+
+                // 依照碼表紀錄清單「依照最新時間順序」顯示
+                int i = StopWatchLog.Count;
+                while (i > 0)
+                {
+                    txtStopWatchLog.Text += String.Format("第 {0} 筆紀錄：{1}", i.ToString(), StopWatchLog[i - 1] + "\n");
+                    i--;
+                }
+                sw.Restart(); // 歸零碼表，碼表仍繼續進行  
+            }
+            else
+            {
+                sw.Reset(); // 如果碼表沒在跑，停止並歸零碼表
+                txtStopWatch.Text = "00:00:00:000";
+            }
+        }
+
+        private void btnPause_Click(object sender, RoutedEventArgs e)
+        {
+            sw.Stop();                  // 停止碼表，但不歸零
+            timerStopWatch.Stop();      // 停止讓碼表文字顯示  
+        }
+
+        private void btnLog_Click(object sender, RoutedEventArgs e)
+        {
+            txtStopWatchLog.Text = "";
+            if (StopWatchLog.Count == 10)
+                StopWatchLog.RemoveAt(0);
+            StopWatchLog.Add(txtStopWatch.Text);
+
+            int i = StopWatchLog.Count;
+            while (i > 0)
+            {
+                txtStopWatchLog.Text += String.Format("第 {0} 筆紀錄：{1}", i.ToString(), StopWatchLog[i - 1] + "\n");
+                i--;
+            }
         }
     }
 }
