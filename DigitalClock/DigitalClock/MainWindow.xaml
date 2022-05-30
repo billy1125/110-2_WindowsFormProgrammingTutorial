@@ -10,12 +10,12 @@
         <TextBox x:Name="txtTime" HorizontalAlignment="Left" Height="130" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="772" FontSize="100" TextAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
         <TextBox x:Name="txtDate" HorizontalAlignment="Left" Height="130" Margin="10,145,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="513" VerticalContentAlignment="Center" TextAlignment="Center" FontSize="60" FontWeight="Bold"/>
         <TextBox x:Name="txtWeekDay" HorizontalAlignment="Left" Height="130" Margin="528,145,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="254" VerticalContentAlignment="Center" TextAlignment="Center" FontSize="60" FontWeight="Bold"/>
-        <Button x:Name="btnSetAlert" Content="啟動鬧鐘" HorizontalAlignment="Left" Margin="10,280,0,0" VerticalAlignment="Top" Width="141" Height="73" FontSize="24"/>
-        <Button x:Name="btnCancelAlert" Content="關閉鬧鐘" HorizontalAlignment="Left" Margin="156,280,0,0" VerticalAlignment="Top" Width="141" Height="73" FontSize="24"/>
+        <Button x:Name="btnSetAlert" Content="啟動鬧鐘" HorizontalAlignment="Left" Margin="10,280,0,0" VerticalAlignment="Top" Width="141" Height="73" FontSize="24" Click="btnSetAlert_Click"/>
+        <Button x:Name="btnCancelAlert" Content="關閉鬧鐘" HorizontalAlignment="Left" Margin="156,280,0,0" VerticalAlignment="Top" Width="141" Height="73" FontSize="24" Click="btnCancelAlert_Click"/>
         <ComboBox x:Name="cmbHour" HorizontalAlignment="Left" Margin="302,280,0,0" VerticalAlignment="Top" Width="163" Height="73" VerticalContentAlignment="Center" FontSize="36"/>
         <ComboBox x:Name="cmbMin" HorizontalAlignment="Left" Margin="494,280,0,0" VerticalAlignment="Top" Width="163" Height="73" VerticalContentAlignment="Center" FontSize="36"/>
         <Label Content=":" HorizontalAlignment="Left" Margin="470,280,0,0" VerticalAlignment="Top" Width="19" Height="73" FontWeight="Bold" FontSize="36" VerticalContentAlignment="Center"/>
-        <MediaElement x:Name="meSound" HorizontalAlignment="Left" Height="100" Margin="671,293,0,0" VerticalAlignment="Top" Width="100" Source="alert.wav" Volume="1"/>
+        <MediaElement x:Name="meSound" HorizontalAlignment="Left" Height="100" Margin="671,293,0,0" VerticalAlignment="Top" Width="100" Source="alert.wav" Volume="1" MediaEnded="meSound_MediaEnded"/>
 
     </Grid>
 </Window>

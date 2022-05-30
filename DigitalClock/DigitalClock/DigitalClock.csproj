@@ -97,8 +97,5 @@
   <ItemGroup>
     <Resource Include="clock.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="alert.wav" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

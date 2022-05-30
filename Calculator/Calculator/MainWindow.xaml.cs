@@ -78,6 +78,7 @@ namespace Calculator
             Add_Number("0");
         }
 
+        // 按下數字按鍵函式
         private void Add_Number(string _number)
         {
             if (txtNumber.Text == "0")
@@ -105,11 +106,12 @@ namespace Calculator
             Select_Operator(3);
         }
 
+        // 運算符號按鍵函式
         private void Select_Operator(int _operator)
         {
             firstNumber = Convert.ToSingle(txtNumber.Text); //將輸入文字框轉換成浮點數，存入第一個數字的全域變數
             txtNumber.Text = "0"; //重新將輸入文字框重新設定為0
-            operators = _operator; //選擇「加」號
+            operators = _operator; //設定使用者選擇的運算符號
         }
 
         private void btnDot_Click(object sender, RoutedEventArgs e)
