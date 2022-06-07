@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F62A6759-D646-4367-BCE7-70B34ADB7072}</ProjectGuid>
+    <ProjectGuid>{88350BF4-E2B7-45FC-AA44-AD4D975D09B0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>DigitalClock</RootNamespace>
     <AssemblyName>DigitalClock</AssemblyName>

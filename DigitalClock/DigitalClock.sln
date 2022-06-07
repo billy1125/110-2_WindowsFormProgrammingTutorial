@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32428.217
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalClock", "DigitalClock\DigitalClock.csproj", "{F62A6759-D646-4367-BCE7-70B34ADB7072}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalClock", "DigitalClock\DigitalClock.csproj", "{88350BF4-E2B7-45FC-AA44-AD4D975D09B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F62A6759-D646-4367-BCE7-70B34ADB7072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F62A6759-D646-4367-BCE7-70B34ADB7072}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F62A6759-D646-4367-BCE7-70B34ADB7072}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F62A6759-D646-4367-BCE7-70B34ADB7072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88350BF4-E2B7-45FC-AA44-AD4D975D09B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88350BF4-E2B7-45FC-AA44-AD4D975D09B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88350BF4-E2B7-45FC-AA44-AD4D975D09B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88350BF4-E2B7-45FC-AA44-AD4D975D09B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D56586CE-33C0-410D-80DC-9CC5588FEA2D}
+		SolutionGuid = {1515906D-02C5-40CC-A693-8B50C149DC70}
 	EndGlobalSection
 EndGlobal
